@@ -9,30 +9,30 @@ using namespace std;
 static int aggressive_cow(vector<int>& stalls, int cows){
     sort(stalls.begin(), stalls.end());                                  // Sorting, if required
     
-    int _size_stalls = stalls.size();
+    int size_stalls = stalls.size();
     
-    int start = 1, end = stalls[_size_stalls - 1] - stalls[0], mid; // Max distance between two cows
-    int _cows_count = 0, ans;
+    int start = 1, end = stalls[size_stalls - 1] - stalls[0], mid; // Max distance between two cows
+    int cows_count = 0, max_min_distance=-1;
     int pos = 0;
     
     while (start <= end){
         mid = start + (end - start) / 2; // sets distance between cows
-        _cows_count = 1;
+        cows_count = 1;
         pos = stalls[0];
-        for (int i = 0; i < _size_stalls; i++){
+        for (int i = 0; i < size_stalls; i++){
             if ((pos + mid) <= stalls[i]){
-                _cows_count++;
+                cows_count++;
                 pos = stalls[i];
             }
         }
-        if (_cows_count < cows){
+        if (cows_count < cows){
             end = mid - 1; // reduces distance between cows because all cows are not included
         }else{
-            ans = mid;
+            max_min_distance = mid;
             start = mid + 1; // increases distance between cows because distance can be more that what is at mid
         }
     }
-    return ans;
+    return max_min_distance;
 }
 
 int main(int argc, char const *argv[]){
