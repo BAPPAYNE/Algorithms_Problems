@@ -19,7 +19,7 @@ static int aggressive_cow(vector<int>& stalls, int cows){
         mid = start + (end - start) / 2; // sets distance between cows
         cows_count = 1;
         pos = stalls[0];
-        for (int i = 0; i < size_stalls; i++){
+        for (int i = 1; i < size_stalls; i++){
             if ((pos + mid) <= stalls[i]){
                 cows_count++;
                 pos = stalls[i];
