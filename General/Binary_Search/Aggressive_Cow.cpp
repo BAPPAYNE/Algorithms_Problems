@@ -7,9 +7,12 @@
 using namespace std;
 
 static int aggressive_cow(vector<int>& stalls, int cows){
-    sort(stalls.begin(), stalls.end());                                  // Sorting, if required
-    
     int size_stalls = stalls.size();
+    if(size_stalls == 0){
+        return -1;
+    }
+    
+    sort(stalls.begin(), stalls.end());                                  // Sorting, if required
     
     int start = 1, end = stalls[size_stalls - 1] - stalls[0], mid; // Max distance between two cows
     int cows_count = 0, max_min_distance=-1;
@@ -37,7 +40,7 @@ static int aggressive_cow(vector<int>& stalls, int cows){
 
 int main(int argc, char const *argv[]){
     vector<int> stalls = {
-        6,4,3,16,20,7,18,10
+        
     };
     auto _start = chrono::high_resolution_clock::now();
     cout <<  aggressive_cow(stalls, 5) << endl;
