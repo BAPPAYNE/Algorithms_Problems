@@ -7,7 +7,6 @@ vector<int> mergeSortedArray(vector<int> nums1,int m,vector<int> nums2, const in
     // int i = nums1.size()-nums2.size()-1;
     // int j = nums2.size()-1;
     // int k = nums1.size()-nums2.size() + nums2.size()-1;
-    auto T1 = chrono::high_resolution_clock::now();
     int i=m-1, j=n-1, k=m+n-1;
 
     //if m = 0 then technically nums1 is empty and it has space for nums2 only.
