@@ -1,8 +1,8 @@
 #include<iostream>
-using namespace std;
 #include<vector>
 #include<chrono>
 
+using namespace std;
 vector<int> mergeSortedArray(vector<int> nums1,int m,vector<int> nums2, const int n){
     // int i = nums1.size()-nums2.size()-1;
     // int j = nums2.size()-1;
