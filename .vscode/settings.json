@@ -5,6 +5,8 @@
         "iostream": "cpp",
         "editor.bracketPairColorization.enabled": "true",
         "editor.guides.bracketPairs": "active",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "iosfwd": "cpp",
+        "istream": "cpp"
     }
 }
