@@ -24,11 +24,11 @@ int main(int argc, char const *argv[])
 
     auto start = chrono::high_resolution_clock::now();
     
-    big_float b = a * boost::multiprecision::pow(big_float(10), digits); // Scale the number: multiply by 10^(2*digits) to preserve precision
+    big_float b = a * boost::multiprecision::pow(big_float(10), digits*2); // Scale the number: multiply by 10^(2*digits) to preserve precision
     big_float i = 0;
     for (i = 1; i * i <= b; ++i);
     big_float n = i - 1;
-    n = n / boost::multiprecision::pow(big_float(10), digits/2); // Divide by 10^(digits) to adjust for decimal places
+    n = n / boost::multiprecision::pow(big_float(10), digits); // Divide by 10^(digits) to adjust for decimal places
 
     auto end = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
