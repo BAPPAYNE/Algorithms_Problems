@@ -42,7 +42,7 @@ big_float regula_Falsi(big_float N){
         a = N;  b = 0;
     }
 
-    long long count = 99999;
+    long long count = 99;
     while(count){   // count - Looping or iteration variable.
         // c = (a*func(N,b) - b*func(N,a))/(func(N,b)-func(N,a)) ; // 4 function calls
         // Checking bisection method condition and updating $a and $b accordingly.
@@ -67,5 +67,11 @@ int main(int argc, char const *argv[])
     cout << "Sqrt(" << N << ") = " << regula_Falsi(N) << endl;
     auto diff = chrono::high_resolution_clock::now() - T1;
     cout << "Executing time: "<<chrono::duration_cast<chrono::milliseconds> (diff).count() << " miliseconds" ;
+    /*
+    PS D:\BAPPAYNE D\CP\Algorithms_Problems\Custom> .\sqrt_Regula_falsi.exe
+    Enter number : 52
+    Sqrt(52) = 7.2111025509090019343766050832612373335986375439664880573265166061157173995367457155095411582139909807927875703642362527824512514057710663998176487717046597773031832034105284942203673421087431789323473705173189320417582587885309248967234843099546730246350083472306676655817739141370775044132847286793008834138163365423679351806640625
+    Executing time: 4 miliseconds
+    */
     return 0;
 }
