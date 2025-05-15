@@ -1,6 +1,6 @@
 
 /*  
-        Bisection Method to calculate sqrt.
+        Bisection Method to calculate sqrt.(Binary Search Concept)
 n	a	        f(a)	    b	        f(b)	    c=a+b2	    f(c)	    Update
 ---------------------------------------------------------------------------------------
 1	3	        -3	        4	        4	        3.5	        0.25	    b=c
@@ -15,14 +15,16 @@ n	a	        f(a)	    b	        f(b)	    c=a+b2	    f(c)	    Update
 10	3.4629	    -0.0084	    3.4648	    0.0051	    3.4639	    -0.0016	    a=c
 11	3.4639	    -0.0016	    3.4648	    0.0051	    3.4644  	0.0018	    b=c
 12	3.4639	    -0.0016	    3.4644	    0.0018	    3.4641  	0.0001	    b=c
+.     .             .         .            .          .           .          .
+.     .             .         .            .          .           .          .
+.     .             .         .            .          .           .          .
 
 */
 
 #include<iostream>
 #include<boost/multiprecision/cpp_bin_float.hpp>
 #include<chrono>
-// #include<conio.h>
-// #include<Windows.h>
+
 using namespace boost::multiprecision ;
 using namespace std;
 using big_float =  cpp_bin_float_100 ;
@@ -31,22 +33,19 @@ big_float func(big_float N,big_float x){
     return x*x - N ;
 }
 
-int main(int argc, char const *argv[])
-{
-    big_float N ;
-    std::cout << "Enter number : " ;
-    std::cin >> N ;
-    
-    auto T1 = chrono::high_resolution_clock::now() ;
-
-    int8_t ERROR_MSG = 12 ;
+big_float bisection(big_float N){
+    if (N == 0 || N == 1){
+        return N;
+    }
+    if(N<0){
+        cerr << "\033[0;31mN cannot be negative. \033[0m" << endl ;
+        return 0;
+    }
     big_float x ;
     big_float a, b, c ;
     cout.precision(500) ;       // set precision for printing max length after point.
     if(N<0){
         cerr << "\033[0;31mN cannot be negative. \033[0m" << endl ;
-        auto diff = chrono::high_resolution_clock::now() - T1;
-        cout << "Executing time: "<<chrono::duration_cast<chrono::milliseconds> (diff).count() << " miliseconds" ;
         return 0;
     }
     if(N > 1){
@@ -54,7 +53,7 @@ int main(int argc, char const *argv[])
     }else{
         a = N;  b = 1;
     }
-    long long count = 9999;
+    long long count = 99999;
     while(count){               // count - Looping or iteration variable.
         c = a + (b-a)/2.0;
         if(func(N,a)*func(N,c) < 0){        // Checking bisection method condition and updating $a and $b accordingly.
@@ -64,7 +63,18 @@ int main(int argc, char const *argv[])
         }
         count-- ;
     }
-    cout << "Sqrt(" << N << ") = " << c << endl;
+    return c ;
+}
+
+int main(int argc, char const *argv[])
+{
+    big_float N ;
+    std::cout << "Enter number : " ;
+    std::cin >> N ;
+    
+    auto T1 = chrono::high_resolution_clock::now() ;
+    
+    cout << "Sqrt(" << N << ") = " << bisection(N) << endl;
     auto diff = chrono::high_resolution_clock::now() - T1;
     cout << "Executing time: "<<chrono::duration_cast<chrono::milliseconds> (diff).count() << " miliseconds" ;
     return 0;
