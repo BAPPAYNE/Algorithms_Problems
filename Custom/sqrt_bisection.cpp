@@ -53,7 +53,7 @@ big_float bisection(big_float N){
     }else{
         a = N;  b = 1;
     }
-    long long count = 99999;
+    long long count = 99;
     while(count){               // count - Looping or iteration variable.
         c = a + (b-a)/2.0;
         if(func(N,a)*func(N,c) < 0){        // Checking bisection method condition and updating $a and $b accordingly.
@@ -77,6 +77,13 @@ int main(int argc, char const *argv[])
     cout << "Sqrt(" << N << ") = " << bisection(N) << endl;
     auto diff = chrono::high_resolution_clock::now() - T1;
     cout << "Executing time: "<<chrono::duration_cast<chrono::milliseconds> (diff).count() << " miliseconds" ;
+    
+    /*
+    PS D:\BAPPAYNE D\CP\Algorithms_Problems\Custom> .\sqrt_bisection.exe
+    Enter number : 52
+    Sqrt(52) = 7.2111025509279785862384425349863725619364006117022384656327360641370205485145561397075653076171875
+    Executing time: 4 miliseconds
+    */
     return 0;
 }
 
