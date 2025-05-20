@@ -9,7 +9,7 @@ big_float func(big_float x,big_float N){
     return x*x - N ;
 }
 
-big_float newton_Raphson(big_float N){
+big_float sqrt_Newton_Raphson(big_float N){
 
     if (N < 0) {
         // Handle error (e.g., throw exception or return NaN)
