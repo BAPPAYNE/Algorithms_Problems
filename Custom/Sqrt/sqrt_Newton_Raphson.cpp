@@ -69,7 +69,7 @@ int main(int argc, char const *argv[])
     cin >> N;
     cout.precision(500);    // set precision for printing max length after point.
     auto T1 = chrono::high_resolution_clock::now() ;
-    cout << "Sqrt(" << N << ") = " << newton_Raphson(N) << endl;
+    cout << "Sqrt(" << N << ") = " << sqrt_Newton_Raphson(N) << endl;
     auto diff = chrono::high_resolution_clock::now() - T1;
     cout << "Executing time: "<<chrono::duration_cast<chrono::milliseconds> (diff).count() << " miliseconds" ;
     return 0;
