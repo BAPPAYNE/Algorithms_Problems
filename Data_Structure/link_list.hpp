@@ -1,3 +1,6 @@
+#ifndef LINK_LIST
+#define LINK_LIST
+
 #include<stdio.h>
 #include<stdlib.h>
 // #include<string>
@@ -8,9 +11,9 @@ struct SingleList {
     public:
         type data;
         SingleList *next = nullptr;
-        static SingleList *head;
-        static long long size;
-        static SingleList *tail;
+        SingleList *head = nullptr;
+        long long size = 0;
+        SingleList *tail = nullptr;
 
         unsigned insert(type new_Value, int position = -1){
             // Invalid position
@@ -110,14 +113,14 @@ struct SingleList {
 
 };
 // Initialize static members
-template<typename type>
-SingleList<type> *SingleList<type>::head = nullptr;
+// template<typename type>
+// SingleList<type> *SingleList<type>::head = nullptr;
 
-template<typename type>
-SingleList<type> *SingleList<type>::tail = nullptr;
+// template<typename type>
+// SingleList<type> *SingleList<type>::tail = nullptr;
 
-template<typename type>
-long long SingleList<type>::size = 0;
+// template<typename type>
+// long long SingleList<type>::size = 0;
 
 // int main(int argc, char const *argv[])
 // {
@@ -132,3 +135,7 @@ long long SingleList<type>::size = 0;
 //     dummy.print();
 //     return 0;
 // }
+
+
+
+#endif // LINK_LIST
