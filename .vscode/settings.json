@@ -60,6 +60,10 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "complex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "any": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "future": "cpp"
     }
 }
