@@ -35,7 +35,13 @@ struct SingleList {
             }
             //Value assigned
             // new_Node->data = new_Value ;
-            new (&new_Node->data) type(new_Value);
+            // Special handling for pointer types
+            if constexpr (std::is_pointer_v<type>) {
+                new_Node->data = new_Value;  // Simple assignment for pointers
+            } else {
+                new (&new_Node->data) type(new_Value);  // Placement new for objects
+            }
+            // new (&new_Node->data) type(new_Value);
             new_Node->next = nullptr;
 
             // Case 1: List is empty, new node becomes head
