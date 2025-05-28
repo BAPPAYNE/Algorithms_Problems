@@ -211,35 +211,7 @@ struct SingleList {
         long long size() const{
             return size_ ;
         }
-        
-    // Some private things
-    private:
 
 };
-// Initialize static members
-// template<typename type>
-// SingleList<type> *SingleList<type>::head = nullptr;
-
-// template<typename type>
-// SingleList<type> *SingleList<type>::tail = nullptr;
-
-// template<typename type>
-// long long SingleList<type>::size_ = 0;
-
-// int main(int argc, char const *argv[])
-// {
-//     SingleList<std::string> dummy;
-//     dummy.insert("Hello");
-//     dummy.insert("World");
-//     dummy.insert("From", 1);
-//     dummy.insert("C++", 0);
-//     dummy.insert("C++", 4);
-//     dummy.insert("C++", 5);
-
-//     dummy.print();
-//     return 0;
-// }
-
-
 
 #endif // LINK_LIST
