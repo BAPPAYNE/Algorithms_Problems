@@ -28,9 +28,11 @@ int main(int argc, char const *argv[])
     // for(unsigned i = 0 ; i < arr_Size ; i++){
     //     cin >> arr[i] ;
     // }
-    auto _start = chrono::high_resolution_clock::now();
+    auto T1 = chrono::high_resolution_clock::now();
+
     bubble_Sort(arr,arr_Size);
-    auto _difference = chrono::high_resolution_clock::now() - _start;
+
+    auto _difference = chrono::high_resolution_clock::now() - T1;
     cout<< chrono::duration_cast<chrono::duration<double,milli>>(_difference).count() << " ms" <<endl;  
     for (size_t i = 0; i < arr_Size; i++)
     {
