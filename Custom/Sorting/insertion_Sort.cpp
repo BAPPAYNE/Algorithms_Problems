@@ -17,7 +17,7 @@ void insertion_Sort(double arr[], int size) {
 
 int main(int argc, char const *argv[])
 {
-    // Using array (faster than vector (Haah...))
+    // Using array (faster than vector)
     double arr[] = {-1,5,3,4,0};
     int size = sizeof(arr)/sizeof(arr[0]);
     
