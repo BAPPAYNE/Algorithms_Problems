@@ -18,7 +18,7 @@ void insertion_Sort(double arr[], int size) {
 int main(int argc, char const *argv[])
 {
     // Using array (faster than vector)
-    double arr[] = {-1,5,3,4,0};
+    double arr[] = {10, 7, 8, 9, 1, 5};
     int size = sizeof(arr)/sizeof(arr[0]);
     
     auto T1 = chrono::high_resolution_clock::now();
