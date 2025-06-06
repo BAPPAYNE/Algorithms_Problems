@@ -7,17 +7,17 @@
 #include<iostream>
 
 template<typename type>
-struct SingleList {
+struct linklist {
     private:
         long long size_ = 0;
 
     public:
         type data;
-        SingleList *next = nullptr;
-        SingleList *head = nullptr;
-        SingleList *tail = nullptr;
+        linklist *next = nullptr;
+        linklist *head = nullptr;
+        linklist *tail = nullptr;
 
-        ~SingleList(){
+        ~linklist(){
             clear();
         }
         unsigned insert(type new_Value, int position = -1){
@@ -32,7 +32,7 @@ struct SingleList {
                 return 1;
             }
 
-            SingleList<type> *new_Node = (SingleList<type> *)malloc(sizeof(SingleList<type>));
+            linklist<type> *new_Node = (linklist<type> *)malloc(sizeof(linklist<type>));
             // Checking if node is created or not 
             if (!new_Node) {
                 fprintf(stderr, "Memory allocation failed\n");
@@ -73,7 +73,7 @@ struct SingleList {
                 size_++;
                 return 0;
             }
-            SingleList *current = head ;
+            linklist *current = head ;
             long long current_Pos = 0;
             while(current_Pos + 1 != position && current->next != nullptr){
                 current = current->next ;
@@ -92,7 +92,7 @@ struct SingleList {
 
         // remove node function 
         unsigned remove(long long position = -1){
-            // SingleList is empty
+            // linklist is empty
             if(head == nullptr){
                 return 1;
             }
@@ -115,7 +115,7 @@ struct SingleList {
                     return 0;
                 }
                 if(tail != nullptr){
-                    SingleList<type> *current = head;
+                    linklist<type> *current = head;
                     while (current->next->next != nullptr)
                     {
                         current = current->next;
@@ -131,7 +131,7 @@ struct SingleList {
             }
             // Delete at beginning
             if(position == 0){
-                SingleList *temp = head;
+                linklist *temp = head;
                 head = temp->next;
                 temp->data.~type();
                 free(temp);
@@ -139,12 +139,12 @@ struct SingleList {
                 return 0;
             }
             long long current_Pos = 0;
-            SingleList<type> *current = head;
+            linklist<type> *current = head;
             while(current->next!=nullptr && current_Pos + 1 != position){
                 current=current->next;
                 current_Pos++;
             }
-            SingleList<type> *temp = current->next;
+            linklist<type> *temp = current->next;
             current->next = current->next->next;
             temp->data.~type();
             free(temp);
@@ -154,12 +154,12 @@ struct SingleList {
         }
 
 
-        // Printing SingleList
+        // Printing linklist
         void print() const {
             // if(size_ == 0){
             //     fprintf(stderr,"");
             // }
-            SingleList<type> *current = head;
+            linklist<type> *current = head;
             while (current != nullptr) {
                 std::cout << current->data << " -> ";
                 current = current->next;
@@ -171,12 +171,12 @@ struct SingleList {
             std::cout << "nullptr\n";
         }
 
-        // Clearing(Emptying) SingleList
+        // Clearing(Emptying) linklist
         void clear() {
-            SingleList* current = head;
+            linklist* current = head;
             while (current) {
                 current->data.~type(); // Call destructor
-                SingleList* temp = current;
+                linklist* temp = current;
                 current = current->next;
                 free(temp); // Free memory
             }
@@ -184,17 +184,17 @@ struct SingleList {
             size_ = 0;
         }
 
-        SingleList *get(long long position){
-            SingleList *current = head;
+        linklist *get(long long position){
+            linklist *current = head;
             for(long long i = 0 ; i < position ; i++){
                 current = current->next;
             }
             return current ;
         }
 
-        SingleList *clone() const{
-            SingleList<type> new_List;
-                SingleList<type> *current = head;
+        linklist *clone() const{
+            linklist<type> new_List;
+                linklist<type> *current = head;
                 while (current != nullptr) {
                     new_List.insert(current->data);
                     current = current->next;
