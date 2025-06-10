@@ -64,6 +64,18 @@
         "any": "cpp",
         "array": "cpp",
         "functional": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "cfenv": "cpp",
+        "cstdarg": "cpp",
+        "list": "cpp",
+        "mutex": "cpp",
+        "numeric": "cpp",
+        "source_location": "cpp",
+        "stdfloat": "cpp",
+        "stop_token": "cpp",
+        "strstream": "cpp",
+        "thread": "cpp",
+        "unordered_map": "cpp",
+        "xhash": "cpp"
     }
 }
