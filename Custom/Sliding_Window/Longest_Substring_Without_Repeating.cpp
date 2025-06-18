@@ -3,37 +3,10 @@
 
 using namespace std;
 
-
-// int lengthOfLongestSubstring(string str){
-//     bool isRepeated[255] = {0} ;
-//     int length = 0 ;
-//     int j = 0 ;
-//     int tempLength = 0 ; 
-//     if(str.size() == 0) return 0 ;
-//     for(int i = 0 ; i < str.size() ; i++){
-//         if(isRepeated[str[i]] == 0){
-//             isRepeated[str[i]] = 1 ;
-//             tempLength++;
-//         }else{
-//             while(str[j] != str[i]){
-//                 isRepeated[str[j]] = 0 ;
-//                 j++;
-//                 tempLength--;
-//             }
-//             j++;
-//         }
-//         if((i-j+1) > length){
-//             length = tempLength ;
-//         }
-//     }
-//     return length;
-// }
-
 int lengthOfLongestSubstring(char* s) {
-        bool isRepeated[255] = {0} ;
+        bool isRepeated[256] = {0} ;
         int length = 0 ;
         int size = strlen(s) ;
-        cout << size << " " ;
         int j = 0 ;
         if(size == 0) return 0 ;
         for(int i = 0 ; i < size ; i++){
@@ -53,9 +26,35 @@ int lengthOfLongestSubstring(char* s) {
         return length;
 }
 
-// Can be optimized by remembering each letter's latest index occurence so we dont have to use inner loop to iterate and go where s[j] == s[i] instead directly jump or assign.
+// Without inner loop
+
+int lengthOfLongestSubstring2(char* s){
+    int length = 0 ;
+    short inxStored[256];
+    memset(inxStored, -1, sizeof(inxStored)); 
+    int size = strlen(s) ;
+    int i = 0 ;
+    if(size == 0) return 0 ;
+    for (int j = 0 ; j < size ; j++){
+        // if((inxStored[s[j]] != -1 ) && (inxStored[s[j]] >= i)){
+        //     i = inxStored[s[j]] + 1 ;
+        // }
+        if(inxStored[s[j]] >= i){
+            i = inxStored[s[j]] + 1 ;
+        }
+        // cout << "[DEBUG] i j : " << i << " " << j << endl ;
+        inxStored[s[j]] = j ;
+        if((j-i+1) > length){
+            length = (j - i + 1) ;
+        }
+        // cout << "[DEBUG] length: "<< length << endl ;
+    }
+    return length ;
+}
+
 
 
 int main(){
-    cout << lengthOfLongestSubstring("au") ;
+    cout << lengthOfLongestSubstring("abcabc") << endl ;
+    cout << lengthOfLongestSubstring2("abcabc") << endl ;
 }
