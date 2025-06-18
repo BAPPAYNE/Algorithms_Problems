@@ -36,9 +36,6 @@ int lengthOfLongestSubstring2(char* s){
     int i = 0 ;
     if(size == 0) return 0 ;
     for (int j = 0 ; j < size ; j++){
-        // if((inxStored[s[j]] != -1 ) && (inxStored[s[j]] >= i)){
-        //     i = inxStored[s[j]] + 1 ;
-        // }
         if(inxStored[s[j]] >= i){
             i = inxStored[s[j]] + 1 ;
         }
