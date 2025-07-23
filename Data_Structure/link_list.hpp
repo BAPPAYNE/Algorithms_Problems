@@ -14,6 +14,7 @@ struct linklist {
     public:
         type data;
         linklist *next = nullptr;
+        linklist *prev = nullptr;
         linklist *head = nullptr;
         linklist *tail = nullptr;
 
@@ -52,7 +53,7 @@ struct linklist {
 
             // Case 1: List is empty, new node becomes head
             if(head == nullptr && position == -1){
-                head = new_Node ;
+                head = new_Node;
                 tail = new_Node;
                 size_ = 1 ;
                 return 0;
@@ -61,6 +62,7 @@ struct linklist {
             // Case 2: position == -1, then insert at last. Which is by default if no position is specified.
             if(position == -1){
                 tail->next = new_Node;
+                prev = tail;
                 tail = new_Node;
                 size_++;
                 return 0;
@@ -155,7 +157,7 @@ struct linklist {
 
 
         // Printing linklist
-        void print() const {
+        void print(){
             // if(size_ == 0){
             //     fprintf(stderr,"");
             // }
@@ -192,11 +194,11 @@ struct linklist {
             return current ;
         }
 
-        linklist *clone() const{
-            linklist<type> new_List;
+        linklist* clone() const{
+            linklist<type> *new_List;
                 linklist<type> *current = head;
                 while (current != nullptr) {
-                    new_List.insert(current->data);
+                    new_List->insert(current->data);
                     current = current->next;
                 }
             return new_List;

@@ -1,11 +1,12 @@
 #include "link_list.hpp"
 #include<string>
 #include<vector>
+// #include<iostream>
 int main(int argc, char const *argv[])
 {
-    SingleList<std::string> *dummy = new SingleList<std::string>;
+    linklist<std::string> *dummy = new linklist<std::string>;
+    printf("%d\n",sizeof(dummy));
     dummy->data = "10";
-    printf("%s\n", dummy->data);
     dummy->insert("Hello");
     dummy->insert("World");
     dummy->insert("From", 1);
@@ -15,7 +16,10 @@ int main(int argc, char const *argv[])
     dummy->print();
     dummy->remove(3);
     dummy->print();
-    printf("%lld\n", dummy->size());
+    dummy->print();
+
+    // linklist<std::string> *dummy2 = dummy->clone() ;
+    // dummy2->print() ;
     
     // delete[] dummy;
     return 0;
