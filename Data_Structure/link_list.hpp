@@ -6,6 +6,8 @@
 // #include<string>
 #include<iostream>
 
+using namespace std;
+
 template<typename type>
 struct linklist {
     private:
@@ -24,19 +26,19 @@ struct linklist {
         unsigned insert(type new_Value, int position = -1){
             // Invalid position
             if(position < -1){
-                fprintf(stderr,"Error: Position cannot be negative (except -1 for end)\n");
+                cerr << ("Error: Position cannot be negative (except -1 for end)\n");
                 return 1;
             }
             // A position where node cannot be inserted.
             if(position > size_ && position != -1){
-                fprintf(stderr,"Insert position out of Range\n") ;
+                cerr << (stderr,"Insert position out of Range\n") ;
                 return 1;
             }
 
             linklist<type> *new_Node = (linklist<type> *)malloc(sizeof(linklist<type>));
             // Checking if node is created or not 
             if (!new_Node) {
-                fprintf(stderr, "Memory allocation failed\n");
+                cerr << (stderr, "Memory allocation failed\n");
                 return 1;
             }
             //Value assigned
@@ -155,29 +157,31 @@ struct linklist {
             
         }
 
-
         // Printing linklist
         void print(){
-            // if(size_ == 0){
-            //     fprintf(stderr,"");
-            // }
+            if(size_ == 0){
+                cerr <<  ("Error : linklist is empty. Cannot print") << endl;
+                // return ; 
+            }
             linklist<type> *current = head;
             while (current != nullptr) {
-                std::cout << current->data << " -> ";
+                cout << current->data << " -> ";
                 current = current->next;
             }
             // for(long long i = 0 ; i < size_ ; i++){
             //     std::cout << current->data << " -> ";
             //     current = current->next;
             // }
-            std::cout << "nullptr\n";
+            cout << "nullptr\n";
         }
 
         // Clearing(Emptying) linklist
         void clear() {
             linklist* current = head;
             while (current) {
-                current->data.~type(); // Call destructor
+                if constexpr (std::is_class_v<type>) {
+                    current->data.~type(); // Call destructor for class types
+                }
                 linklist* temp = current;
                 current = current->next;
                 free(temp); // Free memory
