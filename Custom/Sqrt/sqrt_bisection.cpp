@@ -79,7 +79,7 @@ int main(int argc, char const *argv[])
     cout << "Executing time: "<<chrono::duration_cast<chrono::milliseconds> (diff).count() << " miliseconds" ;
     
     /*
-    PS D:\BAPPAYNE D\CP\Algorithms_Problems\Custom> .\sqrt_bisection.exe
+    > .\sqrt_bisection.exe
     Enter number : 52
     Sqrt(52) = 7.2111025509279785862384425349863725619364006117022384656327360641370205485145561397075653076171875
     Executing time: 4 miliseconds
