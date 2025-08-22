@@ -2,7 +2,7 @@
 
 using namespace std ;
 
-// I think this is the best possible solution. 
+// It took me nearly 3 hours to find this possible solution. 
 // Time complexity O(1)
 // Space complexity (1)
 
