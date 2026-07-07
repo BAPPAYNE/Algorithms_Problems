@@ -2,7 +2,7 @@
 
 using namespace std ;
 
-// It took me nearly 3 hours to find this possible solution. 
+// It took me nearly 3 hours to find and implement this possible solution. 
 // Time complexity O(1)
 // Space complexity (1)
 
