@@ -4,7 +4,7 @@ using namespace std ;
 
 // It took me nearly 3 hours to find and implement this possible solution. 
 // Time complexity O(1)
-// Space complexity (1)
+// Space complexity O(1)
 
 
 int minMovesToCaptureTheQueen(int a, int b, int c, int d, int e, int f) {
